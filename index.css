@@ -197,13 +197,12 @@ height: 70%!important;
 }
 @media screen and (orientation: landscape) {
 .fluid-container {
- height: 100vh;
  align-items: stretch!important;
  justify-content: space-between;
  flex-wrap: nowrap!important;
 }
 .fluid-container div.cd {
  width: 40%!important;
- height: 100%;
+ height: 100vh!important;
 }
 }
