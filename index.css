@@ -202,16 +202,21 @@ height: 70%!important;
  flex-wrap: nowrap!important;
 }
 .fluid-container div.cd {
+ align-items: stretch!important;
  width: 40%!important;
  height: 100vh!important;
 }
 div.cd div.code-container {
+ height: 100%!important;
  flex-wrap: wrap!important;
+ align-items: flex-start!important;
  justify-content: center!important;
 }
 div.cd div.code-container section {
  width: 100%!important;
- height: 35%!important;
+ height: 30%!important;
+ border-bottom: 2px solid rgba(0,0,0,.78);
+ border-left: 2px solid rgba(0,0,0,.78);
 }
 .fluid-container div.frame-container {
  width: 60%;
