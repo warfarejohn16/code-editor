@@ -27,7 +27,7 @@ height: 46%;
 display: flex;
 align-items: center;
 flex-wrap: wrap;
-background: white url("file:///storage/sdcard0/Download/IMG_20210808_104446_903.JPG") center no-repeat;
+background: white url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyYdYliliJdeVwa546NG6OZO7kd1dqrZvwkQ&usqp=CAU") center no-repeat;
 background-size: cover;
 }
 .cd header {
