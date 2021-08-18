@@ -205,6 +205,15 @@ height: 70%!important;
  width: 40%!important;
  height: 100vh!important;
 }
+div.cd div.code-container {
+ flex-wrap: wrap!important;
+ justify-content: center!important;
+ align-items: stretch!important;
+}
+div.cd div.code-container section {
+ width: 100%!important;
+ height: 35%;
+}
 .fluid-container div.frame-container {
  width: 60%;
  height: 100vh!important;
