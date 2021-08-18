@@ -205,4 +205,8 @@ height: 70%!important;
  width: 40%!important;
  height: 100vh!important;
 }
+.fluid-container div.frame-container {
+ width: 60%;
+ height: 100vh!important;
+}
 }
