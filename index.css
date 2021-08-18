@@ -211,7 +211,7 @@ div.cd div.code-container {
 }
 div.cd div.code-container section {
  width: 100%!important;
- height: 35%;
+ height: 35%!important;
 }
 .fluid-container div.frame-container {
  width: 60%;
