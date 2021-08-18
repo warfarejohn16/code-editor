@@ -223,7 +223,7 @@ height: 70%!important;
 }
 .fluid-container div.frame-container {
  width: 60%;
- height: 100vh!important;
+ height: 100%!important;
  align-items: stretch!important;
 }
 }
