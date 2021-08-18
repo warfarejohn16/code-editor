@@ -29,7 +29,6 @@ align-items: center;
 flex-wrap: wrap;
 background: white url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyYdYliliJdeVwa546NG6OZO7kd1dqrZvwkQ&usqp=CAU") center no-repeat;
 background-size: cover;
-background-attachment: fixed;
 }
 .cd header {
 width: 100%;
