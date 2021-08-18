@@ -1,197 +1,129 @@
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+var inputers = {
+html: document.getElementById("html"),
+css: document.getElementById("css"),
+js: document.getElementById("js"),
+sections: document.getElementsByTagName("section"),
+buttons: document.getElementsByClassName("btn")
+};
+window.onload = function(){
+inputers.html.style.display ="block";
+};
+//we can use later
+var i,v = localStorage.hyperTxt,j = localStorage.Cascading, c = localStorage.Javascript;
+function SessionsKey() {
+localStorage.hyperTxt = editorHtml.getValue();
+localStorage.Cascading = editorCss.getValue();
+localStorage.Javascript = editorJs.getValue();
 }
-*:selections {
-   background: lightblue!important;
+function clickTrigger(n) {
+for(i =0;i < inputers.buttons.length;i++) {
+inputers.buttons[i].setAttribute("class", "btn");
+inputers.sections[i].style.display = "none";
 }
-body,html{
-width: 100%;
-height: 100vh;
+inputers.sections[n].style.display ="block";
+inputers.buttons[n].setAttribute("class", "btn active");
 }
-body {
-display: flex;
-align-items: flex-end;
+function Html() {
+window.editorHtml = ace.edit("html");
+editorHtml.getSession().setMode("ace/mode/html");
+editorHtml.setTheme("ace/theme/chrome");
+editorHtml.setValue(`${v}`, 1);
+editorHtml.setOptions({
+showLineNumbers: false,
+showGutter: false,
+vScrollBarAlwaysVisible: false,
+enableBasicAutocompletion: true,
+enableLiveAutocompletion: true,
+highlightActiveLine: false,
+});
+    editorHtml.session.setUseWrapMode(true);
+editorHtml.session.setTabSize(1);
+editorHtml.session.getLength();
+editorHtml.setBehavioursEnabled(true);
+editorHtml.setShowPrintMargin(false);
+editorHtml.selection.getCursor();
 }
-div.fluid-container {
-width: 100%;
-height: 100%;
-display: flex;
-align-items: flex-start;
-flex-wrap: wrap;
+Html();
+function Css() {
+window.editorCss = ace.edit("css");
+editorCss.getSession().setMode("ace/mode/css");
+editorCss.setTheme("ace/theme/chrome");
+editorCss.setValue(`${j}`, 1);
+editorCss.setOptions({
+showLineNumbers: false,
+showGutter: false,
+vScrollBarAlwaysVisible: false,
+enableBasicAutocompletion: true,
+enableLiveAutocompletion: true,
+highlightActiveLine: false,
+});
+    editorCss.session.setUseWrapMode(true);
+editorCss.setBehavioursEnabled(true);
+editorCss.setShowPrintMargin(false);
+editorCss.session.setTabSize(1);
+editorCss.session.getLength();
 }
-div.fluid-container div.cd{
-width: 100%;
-height: 46%;
-display: flex;
-align-items: center;
-flex-wrap: wrap;
-background: white url("file:///storage/sdcard0/Download/IMG_20210808_104446_903.JPG") center no-repeat;
-background-size: cover;
+Css();
+function Javascript() {
+window.editorJs = ace.edit("js");
+editorJs.getSession().setMode("ace/mode/javascript");
+editorJs.setTheme("ace/theme/chrome");
+editorJs.setValue(`${c}`, 1);
+editorJs.setOptions({
+showLineNumbers: false,
+showGutter: false,
+vScrollBarAlwaysVisible: false,
+enableBasicAutocompletion: true,
+enableLiveAutocompletion: true,
+highlightActiveLine: false,
+});
+    editorJs.session.setUseWrapMode(true);
+editorJs.session.setTabSize(1);
+editorJs.setBehavioursEnabled(true);
+editorJs.setShowPrintMargin(false);
 }
-.cd header {
-width: 100%;
-height: 20%;
-display: flex;
-align-items: flex-end;
-justify-content: center;
-position: sticky;
-top: 0;
-z-index: 10000;
-}
-header button {
-width: 16%;
-padding: 9px;
-font-size: 11px;
-font-family: sans-serif;
-font-weight: 700;
-color: white;
-background-color: rgba(9,25,45,1);
-border: none;
-}
-.cd div.code-container {
-width: 100%;
-height: 80%;
-display: flex;
-align-items: center;
-justify-content: center;
-background-color: transparent;
-}
-.code-container > section {
-width: 95%;
-height: 91%;
-font-size: 13px;
-border: none;
-background-color: transparent;
-line-height: 1.6;
-display: none;
-}
+Javascript();
 
-.fluid-container div.frame-container {
-width: 100%;
-height: 54%;
-display: flex;
-align-items: center;
-justify-content: center;
+document.getElementById("result").addEventListener("click", function () {
+if(editorHtml.getValue() == "" && editorCss.getValue() == "" && editorJs.getValue() == "") {
+Prompt.style.left = "2%";
 }
-.frame-container iframe {
-width: 100%;
-height: 100%;
-border: none;
+let iframe = document.getElementById("iframe").contentWindow.document;
+iframe.open();
+iframe.write(editorHtml.getValue()+"<style>"+editorCss.getValue()+"</style>"+"<script>"+editorJs.getValue()+"</script>");
+iframe.close();
+SessionsKey();
+});
+function ForPcOn(){
+if(window.innerWidth >= 900){
+let iframe = document.getElementById("iframe").contentWindow.document;
+iframe.open();
+iframe.write(editorHtml.getValue()+"<style>"+editorCss.getValue()+"</style>"+"<script>"+editorJs.getValue()+"</script>");
+iframe.close();
+timer = 100;
+}else {
+return;
 }
+}
+ForPcOn();
+//prmpt
+var Prompt = document.querySelector(".prompt");
+var tmp = `<!doctype html>\n <html>\n \ <head>\n \ <title>This is the axample</title>\n \ <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n \ <meta http-equiv='X-UA-Compatible' content='IE=Edge'>\n \</head>\n \<body>\n \ \ <h1>This is heading</h1>\n \ \ <p>This is a paragraph</p>\n \</body>\n </html>\n <!--[This is a example of our editor]-->`, tmp_2 = `* \{\n font-size: 18px;\n \}`, tmp_3 = `document.write(Date())`;
+function Changrt(txtN) {
+if(txtN == "ok") {
+if(editorHtml.getValue() == "" && editorCss.getValue() == "" && editorJs.getValue() == "") {
 
-/*active buttons*/
-.active {
-background-color: rgba(12,34,45,1)!important;
-}
-#result {
-width: 18%!important;
-background-color: green;
-}
-#result:active {
-border: 2px solid orange;
-padding: 7px!important;
-}
-#reset {
-background-color: mediumseagreen;
-margin-left: 10px;
-}
-div.prompt {
-position: fixed;
-bottom: 10px;
-left: -200%;
-width: 95%;
-height: 90px;
-display: flex;
-align-items: center;
-background-color: rgba(25,34,67,1);
-border-radius: 3px;
-justify-content: space-around;
-z-index: 1;
-transition: left 1s;
-}
-.prompt > button {
-position: absolute;
-top: -7px;
-right: -1px;
-padding: 5px;
-font-size: 1.3em;
-border: none;
-background-color: transparent;
-color: white;
-font-family: sans-serif;
-font-weight: 1000;
-}
-.prompt div.leftedTxt {
-width: 70%;
-}
-.leftedTxt h2 {
-padding: 5px 10px;
-text-align: left;
-font-family: sans-serif;
-font-weight: 1000;
-font-size: 1.2em;
-color: white;
-}
-.leftedTxt p {
-padding: 5px 10px;
-line-height: 1;
-word-spacing: 2px;
-font-family: sans-serif;
-font-weight: 300;
-font-size: 1em;
-color: white;
-}
-.prompt div.accepted {
-width: 25%;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-.accepted button {
-width: 100%;
-padding: 10px;
-font-size: 1.3em;
-background-color: transparent;
-border: none;
-color: dodgerblue;
-font-family: sans-serif;
-font-weight: 300;
-text-align: center;
-}
-@media screen and (min-width: 900px) {
-body, html {
-   height: 100%!important;
-overflow: hidden!important;
-}
-  body {
-    align-items: stretch!important;
-    }
-.fluid-container div.cd {
-justify-content: flex-start!important;
-height: 30%!important;
-align-items: center!important;
-}
-.cd header {
-display: none!important;
-}
-.cd div.code-container {
-width: 100%!important;
-height: 100%!important;
-flex-wrap: nowrap!important;
-justify-content: space-around!important;
-}
-.code-container section {
-display: block!important;
-width: 30%;
-height: 95%!important;
-overflow-y: scroll!important;
-  font-size: 1.12em!important;
-}
+editorHtml.setValue(`${tmp}`, 1);
+Prompt.style.left = `${"-"+100+100}%`;
 
-.fluid-container div.frame-container {
-width: 100%!important;
-height: 70%!important;
+editorCss.setValue(`${tmp_2}`, 1);
+
+editorJs.setValue(`${tmp_3}`, 1);
+Prompt.style.left = `${"-"+100+100}%`;
 }
+} else {
+Prompt.style.left = `${"-"+100+100}%`;
 }
+SessionsKey();
+}
+Changrt('ok');
