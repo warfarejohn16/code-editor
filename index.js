@@ -26,7 +26,7 @@ inputers.buttons[n].setAttribute("class", "btn active");
 function Html() {
 window.editorHtml = ace.edit("html");
 editorHtml.getSession().setMode("ace/mode/html");
-editorHtml.setTheme("ace/theme/dracula");
+editorHtml.setTheme("ace/theme/monokai");
 editorHtml.setValue(`${v}`, 1);
 editorHtml.setOptions({
 showLineNumbers: false,
