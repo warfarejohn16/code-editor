@@ -47,7 +47,7 @@ Html();
 function Css() {
 window.editorCss = ace.edit("css");
 editorCss.getSession().setMode("ace/mode/css");
-editorCss.setTheme("ace/theme/dracula");
+editorCss.setTheme("ace/theme/monokai");
 editorCss.setValue(`${j}`, 1);
 editorCss.setOptions({
 showLineNumbers: false,
@@ -67,7 +67,7 @@ Css();
 function Javascript() {
 window.editorJs = ace.edit("js");
 editorJs.getSession().setMode("ace/mode/javascript");
-editorJs.setTheme("ace/theme/dracula");
+editorJs.setTheme("ace/theme/monokai");
 editorJs.setValue(`${c}`, 1);
 editorJs.setOptions({
 showLineNumbers: false,
