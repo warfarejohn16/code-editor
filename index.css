@@ -27,7 +27,7 @@ height: 46%;
 display: flex;
 align-items: center;
 flex-wrap: wrap;
-background: white url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyYdYliliJdeVwa546NG6OZO7kd1dqrZvwkQ&usqp=CAU") center no-repeat;
+background: black;
 background-size: cover;
 }
 .cd header {
@@ -57,6 +57,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 background-color: transparent;
+color: white;
 }
 .code-container > section {
 width: 95%;
