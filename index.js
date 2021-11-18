@@ -89,13 +89,13 @@ if(editorHtml.getValue() == "" && editorCss.getValue() == "" && editorJs.getValu
 Prompt.style.left = "2%";
 }
 let iframe = document.getElementById("iframe");
-iframe.srcdoc = editorHtml.getValue()+"<style>"+editorCss.getValue()+"</style>"+"<script>"+editorJs.getValue()+"</scripr>";
+iframe.srcdoc = editorHtml.getValue()+"<style>"+editorCss.getValue()+"</style>"+"<script>"+editorJs.getValue()+"</script>";
 SessionsKey();
 });
 function ForPcOn(){
 if(window.innerWidth >= 900){
 let iframe = document.getElementById("iframe");
-iframe.srcdoc = editorHtml.getValue()+"<style>"+editorCss.getValue()+"</style>"+"<script>"+editorJs.getValue()+"</scripr>";
+iframe.srcdoc = editorHtml.getValue()+"<style>"+editorCss.getValue()+"</style>"+"<script>"+editorJs.getValue()+"</script>";
 timer = 100;
 }else {
 return;
