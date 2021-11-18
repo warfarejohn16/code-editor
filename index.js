@@ -29,8 +29,8 @@ editorHtml.getSession().setMode("ace/mode/html");
 editorHtml.setTheme("ace/theme/monokai");
 editorHtml.setValue(`${v}`, 1);
 editorHtml.setOptions({
-showLineNumbers: false,
-showGutter: false,
+showLineNumbers: true,
+showGutter: true,
 vScrollBarAlwaysVisible: false,
 enableBasicAutocompletion: true,
 enableLiveAutocompletion: true,
@@ -50,8 +50,8 @@ editorCss.getSession().setMode("ace/mode/css");
 editorCss.setTheme("ace/theme/monokai");
 editorCss.setValue(`${j}`, 1);
 editorCss.setOptions({
-showLineNumbers: false,
-showGutter: false,
+showLineNumbers: true,
+showGutter: true,
 vScrollBarAlwaysVisible: false,
 enableBasicAutocompletion: true,
 enableLiveAutocompletion: true,
@@ -70,8 +70,8 @@ editorJs.getSession().setMode("ace/mode/javascript");
 editorJs.setTheme("ace/theme/monokai");
 editorJs.setValue(`${c}`, 1);
 editorJs.setOptions({
-showLineNumbers: false,
-showGutter: false,
+showLineNumbers: true,
+showGutter: true,
 vScrollBarAlwaysVisible: false,
 enableBasicAutocompletion: true,
 enableLiveAutocompletion: true,
@@ -89,15 +89,13 @@ if(editorHtml.getValue() == "" && editorCss.getValue() == "" && editorJs.getValu
 Prompt.style.left = "2%";
 }
 let iframe = document.getElementById("iframe");
-iframe.srcdoc = editorHtml.getValue()+editorCss.getValue()+editorJs.getValue();
+iframe.srcdoc = editorHtml.getValue()+"<style>"+editorCss.getValue()+"</style>"+"<script>"+editorJs.getValue()+"</scripr>";
 SessionsKey();
 });
 function ForPcOn(){
 if(window.innerWidth >= 900){
-let iframe = document.getElementById("iframe").contentWindow.document;
-iframe.open();
-iframe.write(editorHtml.getValue()+"<style>"+editorCss.getValue()+"</style>"+"<script>"+editorJs.getValue()+"</script>");
-iframe.close();
+let iframe = document.getElementById("iframe");
+iframe.srcdoc = editorHtml.getValue()+"<style>"+editorCss.getValue()+"</style>"+"<script>"+editorJs.getValue()+"</scripr>";
 timer = 100;
 }else {
 return;
