@@ -26,7 +26,7 @@ inputers.buttons[n].setAttribute("class", "btn active");
 function Html() {
 window.editorHtml = ace.edit("html");
 editorHtml.getSession().setMode("ace/mode/html");
-editorHtml.setTheme("ace/theme/chrome");
+editorHtml.setTheme("ace/theme/dracula");
 editorHtml.setValue(`${v}`, 1);
 editorHtml.setOptions({
 showLineNumbers: false,
@@ -47,7 +47,7 @@ Html();
 function Css() {
 window.editorCss = ace.edit("css");
 editorCss.getSession().setMode("ace/mode/css");
-editorCss.setTheme("ace/theme/chrome");
+editorCss.setTheme("ace/theme/dracula");
 editorCss.setValue(`${j}`, 1);
 editorCss.setOptions({
 showLineNumbers: false,
@@ -67,7 +67,7 @@ Css();
 function Javascript() {
 window.editorJs = ace.edit("js");
 editorJs.getSession().setMode("ace/mode/javascript");
-editorJs.setTheme("ace/theme/chrome");
+editorJs.setTheme("ace/theme/dracula");
 editorJs.setValue(`${c}`, 1);
 editorJs.setOptions({
 showLineNumbers: false,
@@ -88,10 +88,8 @@ document.getElementById("result").addEventListener("click", function () {
 if(editorHtml.getValue() == "" && editorCss.getValue() == "" && editorJs.getValue() == "") {
 Prompt.style.left = "2%";
 }
-let iframe = document.getElementById("iframe").contentWindow.document;
-iframe.open();
-iframe.write(editorHtml.getValue()+"<style>"+editorCss.getValue()+"</style>"+"<script>"+editorJs.getValue()+"</script>");
-iframe.close();
+let iframe = document.getElementById("iframe");
+iframe.srcdoc = editorHtml.getValue()+editorCss.getValue()+editorJs.getValue();
 SessionsKey();
 });
 function ForPcOn(){
