@@ -1,3 +1,5 @@
+var snippetManager = ace.require("ace/snippets").snippetManager;
+snippetManager.insertSnippet(editor, snippet);
 var inputers = {
 html: document.getElementById("html"),
 css: document.getElementById("css"),
