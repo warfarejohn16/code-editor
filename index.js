@@ -1,5 +1,5 @@
-var snippetManager = ace.require("snippets").snippetManager;
-snippetManager.insertSnippet(editor, snippet);
+var snippetManager = ace.require("acw/snippets").snippetManager;
+snippetManager.insertSnippet(editorHtml, snippet);
 var inputers = {
 html: document.getElementById("html"),
 css: document.getElementById("css"),
