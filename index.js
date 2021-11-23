@@ -39,7 +39,8 @@ highlightActiveLine: false,
     autoScrollEditorIntoView: true,
     enableBasicAutocompletion: true,
         enableSnippets: true,
-        enableLiveAutocompletion: true
+        enableLiveAutocompletion: true,
+    minLines: 10
 });
     editorHtml.session.setUseWrapMode(true);
 editorHtml.session.setTabSize(1);
@@ -64,7 +65,8 @@ highlightActiveLine: false,
     autoScrollEditorIntoView: true,
     enableBasicAutocompletion: true,
         enableSnippets: true,
-        enableLiveAutocompletion: true
+        enableLiveAutocompletion: true,
+    minLines: 10
 });
     editorCss.session.setUseWrapMode(true);
 editorCss.setBehavioursEnabled(true);
@@ -88,7 +90,8 @@ highlightActiveLine: false,
     autoScrollEditorIntoView: true,
     enableBasicAutocompletion: true,
         enableSnippets: true,
-        enableLiveAutocompletion: true
+        enableLiveAutocompletion: true,
+    minLines: 10
 });
     editorJs.session.setUseWrapMode(true);
 editorJs.session.setTabSize(1);
