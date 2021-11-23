@@ -1,4 +1,4 @@
-var tool = require("ace/ext/language_tools");
+var tool = ace.require("ace/ext/language_tools");
 var inputers = {
 html: document.getElementById("html"),
 css: document.getElementById("css"),
