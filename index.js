@@ -35,6 +35,10 @@ vScrollBarAlwaysVisible: false,
 enableBasicAutocompletion: true,
 enableLiveAutocompletion: true,
 highlightActiveLine: false,
+    autoScrollEditorIntoView: true,
+    enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: true
 });
     editorHtml.session.setUseWrapMode(true);
 editorHtml.session.setTabSize(1);
@@ -56,6 +60,10 @@ vScrollBarAlwaysVisible: false,
 enableBasicAutocompletion: true,
 enableLiveAutocompletion: true,
 highlightActiveLine: false,
+    autoScrollEditorIntoView: true,
+    enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: true
 });
     editorCss.session.setUseWrapMode(true);
 editorCss.setBehavioursEnabled(true);
@@ -76,6 +84,10 @@ vScrollBarAlwaysVisible: false,
 enableBasicAutocompletion: true,
 enableLiveAutocompletion: true,
 highlightActiveLine: false,
+    autoScrollEditorIntoView: true,
+    enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: true
 });
     editorJs.session.setUseWrapMode(true);
 editorJs.session.setTabSize(1);
