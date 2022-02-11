@@ -40,7 +40,8 @@ highlightActiveLine: false,
     enableBasicAutocompletion: true,
         enableSnippets: true,
         enableLiveAutocompletion: true,
-    minLines: 10
+    minLines: 10,
+    fontFamily : "PT Mono"
 });
     editorHtml.session.setUseWrapMode(true);
 editorHtml.session.setTabSize(1);
