@@ -25,7 +25,7 @@ flex-wrap: wrap;
 }
 div.fluid-container div.cd{
 width: 100%;
-height: 46%;
+height: 50%;
 display: flex;
 align-items: center;
 flex-wrap: wrap;
@@ -70,7 +70,7 @@ display: none;
 
 .fluid-container div.frame-container {
 width: 100%;
-height: 54%;
+height: 50%;
 display: flex;
 align-items: center;
 justify-content: center;
