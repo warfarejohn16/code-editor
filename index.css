@@ -39,9 +39,9 @@ top: 0;
 z-index: 10000;
 }
 header button {
-width: 16%;
+width: 25%;
 padding: 9px;
-font-size: 11px;
+font-size: 15px;
 font-family: sans-serif;
 font-weight: 700;
 color: white;
@@ -87,10 +87,6 @@ background-color: green;
 #result:active {
 border: 2px solid orange;
 padding: 7px!important;
-}
-#reset {
-background-color: mediumseagreen;
-margin-left: 10px;
 }
 div.prompt {
 position: fixed;
