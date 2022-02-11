@@ -42,7 +42,8 @@ highlightActiveLine: false,
         enableLiveAutocompletion: true,
     minLines: 10,
     fontFamily : "PT Mono",
-    fontSize : "18px"
+    fontSize : "16px", 
+    cursorStyle : "smooth"
 });
     editorHtml.session.setUseWrapMode(true);
 editorHtml.session.setTabSize(1);
@@ -70,7 +71,8 @@ highlightActiveLine: false,
         enableLiveAutocompletion: true,
     minLines: 10,
     fontFamily : "PT Mono",
-    fontSize : "18px"
+    fontSize : "16px", 
+    cursorStyle : "smooth"
 });
     editorCss.session.setUseWrapMode(true);
 editorCss.setBehavioursEnabled(true);
@@ -97,8 +99,8 @@ highlightActiveLine: false,
         enableLiveAutocompletion: true,
     minLines: 10,
    fontFamily : "PT Mono",
-    fontSize : "18px"
-    
+    fontSize : "16px",
+    cursorStyle : "smooth"
 });
     editorJs.session.setUseWrapMode(true);
 editorJs.session.setTabSize(1);
