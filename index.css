@@ -16,18 +16,17 @@ overflow: scroll
 div.fluid-container {
 width: 100%;
 height: 100vh;
-display: flex;
-align-items: flex-start;
-flex-wrap: wrap;
+display: grid;
+grid-template-rows: 50% 50%;
+grid-template-columns: 100%;
 }
 div.fluid-container div.cd{
-width: 100%;
-height: 50%;
 display: flex;
 align-items: center;
 flex-wrap: wrap;
 background: rgba(0,0,0,.05);
 background-size: cover;
+overflow: auto;
 }
 .cd header {
 width: 100%;
