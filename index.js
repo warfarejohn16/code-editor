@@ -41,7 +41,8 @@ highlightActiveLine: false,
         enableSnippets: true,
         enableLiveAutocompletion: true,
     minLines: 10,
-    fontFamily : "PT Mono"
+    fontFamily : "PT Mono",
+    fontSize : "18px"
 });
     editorHtml.session.setUseWrapMode(true);
 editorHtml.session.setTabSize(1);
@@ -67,7 +68,9 @@ highlightActiveLine: false,
     enableBasicAutocompletion: true,
         enableSnippets: true,
         enableLiveAutocompletion: true,
-    minLines: 10
+    minLines: 10,
+    fontFamily : "PT Mono",
+    fontSize : "18px"
 });
     editorCss.session.setUseWrapMode(true);
 editorCss.setBehavioursEnabled(true);
@@ -92,7 +95,10 @@ highlightActiveLine: false,
     enableBasicAutocompletion: true,
         enableSnippets: true,
         enableLiveAutocompletion: true,
-    minLines: 10
+    minLines: 10,
+   fontFamily : "PT Mono",
+    fontSize : "18px"
+    
 });
     editorJs.session.setUseWrapMode(true);
 editorJs.session.setTabSize(1);
