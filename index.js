@@ -114,7 +114,7 @@ if(editorHtml.getValue() == "" && editorCss.getValue() == "" && editorJs.getValu
 Prompt.style.left = "2%";
 }
 let iframe = document.getElementById("iframe");
-iframe.srcdoc = `${editorHtml.getValue()}<style>${editorCss.getValue()></style> <script src="node_modules/eruda/eruda.js"></script><script>eruda.init();</script><script>${editorJs.getValue()}</script>`;
+iframe.srcdoc = `${editorHtml.getValue()}<style>${editorCss.getValue()}</style> <script src="node_modules/eruda/eruda.js"></script><script>eruda.init();</script><script>${editorJs.getValue()}</script>`;
 SessionsKey();
 });
 function ForPcOn(){
