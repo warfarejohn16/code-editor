@@ -51,7 +51,7 @@ border: none;
 }
 .cd div.code-container {
 width: 100%;
-height: calc(80% - 9px) ;
+height: calc(100% - 9px);
 display: flex;
 align-items: center;
 justify-content: center;
