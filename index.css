@@ -63,6 +63,7 @@ border: none;
 background-color: transparent;
 display: none;
    padding: 5px;
+  line-height: 1.4!important;
 }
 
 .fluid-container div.frame-container {
