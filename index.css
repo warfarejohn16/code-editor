@@ -21,9 +21,6 @@ grid-template-rows: 50% 50%;
 grid-template-columns: 100%;
 }
 div.fluid-container div.cd{
-display: flex;
-align-items: center;
-flex-wrap: wrap;
 background: rgba(0,0,0,.05);
 background-size: cover;
 overflow: auto;
@@ -50,7 +47,7 @@ border: none;
 }
 .cd div.code-container {
 width: 100%;
-height: calc(100% - 9px);
+height: calc(100% - 24px);
 display: flex;
 align-items: center;
 justify-content: center;
