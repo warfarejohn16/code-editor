@@ -150,13 +150,15 @@ font-weight: 300;
 text-align: center;
 }
 @media screen and (min-width: 900px) {
+   .fluid-container {
+       grid-template-rows: 30% 70% !important;
+      }
 .cd header {
 display: none!important;
 }
 .cd div.code-container {
 width: 100%!important;
 height: 100%!important;
-grid-template-rows: 30% 70% !important;
 }
 .code-container section {
 display: block!important;
