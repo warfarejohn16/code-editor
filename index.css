@@ -24,6 +24,7 @@ div.fluid-container div.cd{
 background: rgba(0,0,0,.05);
 background-size: cover;
 overflow: auto;
+border: 1px solid lightgrey;
 }
 .cd header {
 width: 100%;
@@ -52,7 +53,6 @@ display: flex;
 align-items: center;
 justify-content: center;
 background-color: transparent;
-border: 1px solid lightgrey;
 }
 .code-container > section {
 width: 100%;
