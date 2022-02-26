@@ -44,7 +44,7 @@ highlightActiveLine: false,
     minLines: 10,
     fontFamily : "PT Mono",
     fontSize : "16px", 
-    cursorStyle : "slim"
+    cursorStyle : "wide"
 });
     editorHtml.session.setUseWrapMode(true);
 editorHtml.session.setTabSize(1);
@@ -73,7 +73,7 @@ highlightActiveLine: false,
     minLines: 10,
     fontFamily : "PT Mono",
     fontSize : "16px", 
-    cursorStyle : "slim"
+    cursorStyle : "wide"
 });
     editorCss.session.setUseWrapMode(true);
 editorCss.setBehavioursEnabled(true);
@@ -101,7 +101,7 @@ highlightActiveLine: false,
     minLines: 10,
    fontFamily : "PT Mono",
     fontSize : "16px",
-    cursorStyle : "slim"
+    cursorStyle : "wide"
 });
     editorJs.session.setUseWrapMode(true);
 editorJs.session.setTabSize(1);
