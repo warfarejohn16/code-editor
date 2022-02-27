@@ -52,7 +52,9 @@ editorHtml.session.getLength();
 editorHtml.setBehavioursEnabled(true);
 editorHtml.setShowPrintMargin(false);
 editorHtml.selection.getCursor();
-    editorHTML.session.alignCursors();
+  editorHTML.on("change", function() {
+    editorHTML.alignCursors();
+  })
 }
 Html();
 function Css() {
