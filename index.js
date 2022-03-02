@@ -27,7 +27,7 @@ inputers.buttons[n].setAttribute("class", "btn active");
 function Html() {
 window.editorHtml = ace.edit("html");
 editorHtml.getSession().setMode("ace/mode/html");
-editorHtml.setTheme("ace/theme/textmate");
+editorHtml.setTheme("ace/theme/chrome");
 editorHtml.setValue(`${v}`, 1);
 editorHtml.setOptions({
 showLineNumbers: true,
@@ -57,7 +57,7 @@ Html();
 function Css() {
 window.editorCss = ace.edit("css");
 editorCss.getSession().setMode("ace/mode/css");
-editorCss.setTheme("ace/theme/textmate");
+editorCss.setTheme("ace/theme/chrome");
 editorCss.setValue(`${j}`, 1);
 editorCss.setOptions({
 showLineNumbers: true,
@@ -85,7 +85,7 @@ Css();
 function Javascript() {
 window.editorJs = ace.edit("js");
 editorJs.getSession().setMode("ace/mode/javascript");
-editorJs.setTheme("ace/theme/textmate");
+editorJs.setTheme("ace/theme/chrome");
 editorJs.setValue(`${c}`, 1);
 editorJs.setOptions({
 showLineNumbers: true,
