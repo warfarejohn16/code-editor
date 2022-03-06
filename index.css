@@ -7,15 +7,19 @@ box-sizing: border-box;
 *:selections {
    background: lightblue!important;
 }
+*:focus {
+ outline: none
+}
 body,html{
 width: 100%;
 height: 100%;
    overscroll-behavior: none;
-overflow: scroll
+overflow: scroll;
 }
 div.fluid-container {
 width: 100%;
 height: 100%;
+min-height: 500px;
 display: grid;
 grid-template-rows: 50% 50%;
 grid-template-columns: 100%;
@@ -24,7 +28,7 @@ div.fluid-container div.cd{
 background: rgba(0,0,0,.05);
 background-size: cover;
 overflow: auto;
-border: 1px solid lightgrey;
+border-bottom: 1px solid lightgrey;
 }
 .cd header {
 width: 100%;
@@ -52,7 +56,7 @@ height: calc(100% - 24px);
 display: flex;
 align-items: center;
 justify-content: center;
-background-color: transparent;
+background-color: rgba(0,0,0,.90);
 }
 .code-container > section {
 width: 100%;
@@ -80,7 +84,7 @@ border: none;
 background-color: rgba(12,34,45,1)!important;
 }
 #result {
-width: 18%!important;
+width: 25%!important;
 background-color: green;
 }
 #result:active {
@@ -151,8 +155,9 @@ font-weight: 300;
 text-align: center;
 }
 @media screen and (min-width: 900px) {
-   .fluid-container {
-       grid-template-rows: 30% 70% !important;
+   div.fluid-container {
+       grid-template-columns: 30% 70% !important;
+       grid-template-rows: 100% !important;
       }
 .cd header {
 display: none!important;
@@ -160,15 +165,20 @@ display: none!important;
 .cd div.code-container {
 width: 100%!important;
 height: 100%!important;
+flex-wrap: wrap;
 }
 .code-container section {
 display: block!important;
-width: 33.33%;
+width: 100%;
+height: 33.33%;
 overflow-y: scroll!important;
   font-size: 1.12rem!important;
+  position: relative;
+  border-top: 2px solid white;
 }
 
 .fluid-container div.frame-container {
 width: 100%!important;
+border: 1px solid black;
 }
-}
+} 
