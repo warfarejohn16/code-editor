@@ -41,7 +41,7 @@ highlightActiveLine: false,
         enableSnippets: true,
         enableLiveAutocompletion: true,
     minLines: 10,
-    fontFamily : "PT Mono",
+    fontFamily : "Roboto Mono",
     fontSize : "16px", 
     cursorStyle : "wide"
 });
@@ -70,7 +70,7 @@ highlightActiveLine: false,
         enableSnippets: true,
         enableLiveAutocompletion: true,
     minLines: 10,
-    fontFamily : "PT Mono",
+    fontFamily : "Roboto Mono",
     fontSize : "16px", 
     cursorStyle : "wide"
 });
@@ -98,7 +98,7 @@ highlightActiveLine: false,
         enableSnippets: true,
         enableLiveAutocompletion: true,
     minLines: 10,
-   fontFamily : "PT Mono",
+   fontFamily : "Roboto Mono",
     fontSize : "16px",
     cursorStyle : "wide"
 });
