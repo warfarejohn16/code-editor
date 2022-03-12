@@ -1,184 +1,148 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=PT+Mono&family=Roboto+Mono&family=Poppins:wght@200&display=swap');
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css);
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Source+Code+Pro:wght@300&family=Poppins&display=swap');
+:root {
+  --opacity : 0.2;
+}
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-*:selections {
-   background: lightblue!important;
+html, body {
+  width: 100%;
+  height: 100%;
+  overscroll-behavior: none;
 }
-*:focus {
- outline: none
+main {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
-body,html{
-width: 100%;
-height: 100%;
-   overscroll-behavior: none;
-overflow: scroll;
+.code-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 100% 100%;
+  grid-template-rows: 100%;
+  transform: translateX(0%);
+  transition: transform 0.6s;
 }
-div.fluid-container {
-width: 100%;
-height: 100%;
-min-height: 500px;
-display: grid;
-grid-template-rows: 50% 50%;
-grid-template-columns: 100%;
+.code-container .code-section {
+  background: #222930;
 }
-div.fluid-container div.cd{
-background: rgba(0,0,0,.05);
-background-size: cover;
-overflow: auto;
-border-bottom: 1px solid lightgrey;
+.navbar {
+  width: 100%;
+  height: auto;
+  background: #303A43;
 }
-.cd header {
-width: 100%;
-height: auto;
-display: flex;
-align-items: flex-end;
-justify-content: center;
-position: sticky;
-top: 0;
-z-index: 10000;
+.code-section .navbar .play-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,var(--opacity));
 }
-header button {
-width: 25%;
-padding: 9px;
-font-size: 15px;
-font-family: "Poppins", sans-serif;
-font-weight: 700;
-color: white;
-background-color: rgba(9,25,45,1);
-border: none;
+.play-section h2 {
+  padding: 10px;
+  color: white;
+  font-family: "Source Code Pro", sans-serif;
+  font-weight: 300;
 }
-.cd div.code-container {
-width: 100%;
-height: calc(100% - 24px);
-display: flex;
-align-items: center;
-justify-content: center;
-background-color: rgba(0,0,0,.90);
-}
-.code-container > section {
-width: 100%;
-height: 100%;
-border: none;
-background-color: transparent;
-display: none;
-   padding: 5px;
-  line-height: 1.4!important;
+.play-section button {
+  padding: 10px;
+  margin: 5px;
+  background: transparent;
+  color: springgreen;
+  border: none;
+  font-size: 1.3rem;
 }
 
-.fluid-container div.frame-container {
-display: flex;
-align-items: center;
-justify-content: center;
+.code-section .navbar .toggle-editor {
+  border-bottom: 1px solid rgba(255,255,255,var(--opacity));
+  display: flex;
 }
-.frame-container iframe {
-width: 100%;
-height: 100%;
-border: none;
+.code-section .navbar .toggle-editor button {
+  width: auto;
+  margin: 0px;
+  padding: 5px 15px;
+  border: none;
+  border-right: 1px solid rgba(255,255,255,var(--opacity));
+  background: transparent;
+  color: white;
 }
-
-/*active buttons*/
-.active {
-background-color: rgba(12,34,45,1)!important;
+.code-section .navbar .toggle-editor button i {
+  font-size: 1.3rem;
+  display: inline-block;
+  padding: 6px;
+  margin-top: 5px;
+  vertical-align: sub;
 }
-#result {
-width: 25%!important;
-background-color: green;
+.code-section .navbar .toggle-editor button.btnHTML i {
+  color: tomato;
 }
-#result:active {
-border: 2px solid orange;
-padding: 7px!important;
+.code-section .navbar .toggle-editor button.btnCSS i {
+  color: royalblue;
 }
-div.prompt {
-position: fixed;
-bottom: 10px;
-left: -200%;
-width: 95%;
-height: 90px;
-display: flex;
-align-items: center;
-background-color: rgba(25,34,67,1);
-border-radius: 3px;
-justify-content: space-around;
-z-index: 1;
-transition: left 1s;
+.code-section .navbar .toggle-editor button.btnJS i {
+  color: orange;
 }
-.prompt > button {
-position: absolute;
-top: -7px;
-right: -1px;
-padding: 5px;
-font-size: 1.3em;
-border: none;
-background-color: transparent;
-color: white;
-font-family: sans-serif;
-font-weight: 1000;
+.code-section .navbar .toggle-editor button.active {
+  background: rgb(38,50,56);
 }
-.prompt div.leftedTxt {
-width: 70%;
+.code-section .editor-container {
+  overflow: auto;
+  width: 100%;
+  padding: 5px;
 }
-.leftedTxt h2 {
-padding: 5px 10px;
-text-align: left;
-font-family: sans-serif;
-font-weight: 1000;
-font-size: 1.2em;
-color: white;
+.code-section .editor-container .editor {
+  width: 100%;
+  height: 100%;
+  min-height: 18px;
+  display: none;
+  background: rgba(0,0,0,.15);
+  line-height: 1.4;
+  padding: 5px;
+  background: transparent;
 }
-.leftedTxt p {
-padding: 5px 10px;
-line-height: 1;
-word-spacing: 2px;
-font-family: sans-serif;
-font-weight: 300;
-font-size: 1em;
-color: white;
+.code-section .editor-container .editor > * {
+  background: transparent !important;
+  color: white !important;
 }
-.prompt div.accepted {
-width: 25%;
-display: flex;
-align-items: center;
-justify-content: center;
+.code-section .editor-container .ace_layer { 
+  background: transparent;
 }
-.accepted button {
-width: 100%;
-padding: 10px;
-font-size: 1.3em;
-background-color: transparent;
-border: none;
-color: dodgerblue;
-font-family: sans-serif;
-font-weight: 300;
-text-align: center;
-}
-@media screen and (min-width: 900px) {
-   div.fluid-container {
-       grid-template-columns: 30% 70% !important;
-       grid-template-rows: 100% !important;
-      }
-.cd header {
-display: none!important;
-}
-.cd div.code-container {
-width: 100%!important;
-height: 100%!important;
-flex-wrap: wrap;
-}
-.code-container section {
-display: block!important;
-width: 100%;
-height: 33.33%;
-overflow-y: scroll!important;
-  font-size: 1.12rem!important;
-  position: relative;
-  border-top: 2px solid white;
+.code-section .editor.active {
+  display: block;
 }
 
-.fluid-container div.frame-container {
-width: 100%!important;
-border: 1px solid black;
+
+
+.code-container .output-console {
+  width: 100%;
+  height: 100%;
 }
-} 
+
+.output-console .title-exit {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: stretch;
+  background: rgba(0,0,0,.85);
+  color: white;
+}
+
+.output-console .title-exit h2 {
+  padding: 12px;
+  font-family: "Source Code Pro", sans-serif;
+  vertical-align: middle;
+}
+.output-console .title-exit button {
+  width: 45px;
+  font-size: 1.5rem;
+  border: none;
+  background: transparent;
+  color: seagreen;
+}
+.output-console #output {
+  width: 100%;
+  border: none;
+}
