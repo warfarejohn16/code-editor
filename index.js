@@ -1,150 +1,125 @@
-ace.require("ace/ext/language_tools");
-var inputers = {
-html: document.getElementById("html"),
-css: document.getElementById("css"),
-js: document.getElementById("js"),
-sections: document.getElementsByTagName("section"),
-buttons: document.getElementsByClassName("btn")
-};
-window.onload = function(){
-inputers.html.style.display ="block";
-};
-//we can use later
-var i,v = localStorage.hyperTxt,j = localStorage.Cascading, c = localStorage.Javascript;
-function SessionsKey() {
-localStorage.hyperTxt = editorHtml.getValue();
-localStorage.Cascading = editorCss.getValue();
-localStorage.Javascript = editorJs.getValue();
-}
-function clickTrigger(n) {
-for(i =0;i < inputers.buttons.length;i++) {
-inputers.buttons[i].setAttribute("class", "btn");
-inputers.sections[i].style.display = "none";
-}
-inputers.sections[n].style.display ="block";
-inputers.buttons[n].setAttribute("class", "btn active");
-}
-function Html() {
-window.editorHtml = ace.edit("html");
-editorHtml.getSession().setMode("ace/mode/html");
-editorHtml.setTheme("ace/theme/monokai");
-editorHtml.setValue(`${v}`, 1);
-editorHtml.setOptions({
-showLineNumbers: true,
-showGutter: true,
-vScrollBarAlwaysVisible: false,
-enableBasicAutocompletion: true,
-enableLiveAutocompletion: true,
-highlightActiveLine: false,
+let Option = {
+    showLineNumbers: true,
+    showGutter: true,
+    vScrollBarAlwaysVisible: false,
+    enableBasicAutocompletion: false,
+    enableLiveAutocompletion: false,
+    highlightActiveLine: true,
     autoScrollEditorIntoView: true,
     enableBasicAutocompletion: true,
-        enableSnippets: true,
-        enableLiveAutocompletion: true,
+    enableSnippets: true,
+    enableLiveAutocompletion: true,
     minLines: 10,
-    fontFamily : "Roboto Mono",
-    fontSize : "16px", 
-    cursorStyle : "wide"
-});
-    editorHtml.session.setUseWrapMode(true);
-editorHtml.session.setTabSize(1);
-editorHtml.session.getLength();
-editorHtml.setBehavioursEnabled(true);
-editorHtml.setShowPrintMargin(false);
-editorHtml.selection.getCursor();
+    fontFamily: "Roboto Mono",
+    fontSize: "18px",
+    cursorStyle: "wide"
 }
-Html();
-function Css() {
-window.editorCss = ace.edit("css");
-editorCss.getSession().setMode("ace/mode/css");
-editorCss.setTheme("ace/theme/monokai");
-editorCss.setValue(`${j}`, 1);
-editorCss.setOptions({
-showLineNumbers: true,
-showGutter: true,
-vScrollBarAlwaysVisible: false,
-enableBasicAutocompletion: true,
-enableLiveAutocompletion: true,
-highlightActiveLine: false,
-    autoScrollEditorIntoView: true,
-    enableBasicAutocompletion: true,
-        enableSnippets: true,
-        enableLiveAutocompletion: true,
-    minLines: 10,
-    fontFamily : "Roboto Mono",
-    fontSize : "16px", 
-    cursorStyle : "wide"
-});
-    editorCss.session.setUseWrapMode(true);
-editorCss.setBehavioursEnabled(true);
-editorCss.setShowPrintMargin(false);
-editorCss.session.setTabSize(1);
-editorCss.session.getLength();
+let main = document.querySelector(".code-container");
+let container = document.querySelector(".editor-container");
+let editors = document.querySelectorAll("div.editor");
+let btns = document.querySelectorAll(".btn");
+let nav = document.querySelector(".navbar");
+let fileName = document.querySelector("#file-name");
+let titleExit = document.querySelector(".title-exit");
+let iframe = document.querySelector("#output")
+let toggle = document.querySelectorAll(".toggle-slide");
+let title = document.querySelector("#project-title");
+let height = parseInt(getComputedStyle(nav, null).getPropertyValue("height"));
+let height_2 = parseInt(getComputedStyle(titleExit, null).getPropertyValue("height"));
+let run = document.querySelector("#run");
+container.style.height = `calc(100% - ${height}px)`;
+iframe.style.height = `calc(100% - ${height}px)`;
+function UpdateEditor() {
+  window.html = ace.edit("html");
+  html.getSession().setMode("ace/mode/html")
+  html.setTheme("ace/theme/twilight")
+  html.setOptions(Option);
+  html.session.setUseWrapMode(true);
+  html.session.setTabSize(1);
+  html.session.getLength();
+  html.setBehavioursEnabled(true);
+  html.setShowPrintMargin(false);
+  //css
+  window.css = ace.edit("css");
+  css.getSession().setMode("ace/mode/css")
+  css.setTheme("ace/theme/twilight")
+  css.setOptions(Option);
+  css.session.setUseWrapMode(true);
+  css.session.setTabSize(1);
+  css.session.getLength();
+  css.setBehavioursEnabled(true);
+  css.setShowPrintMargin(false);
+  //javascript
+  window.js = ace.edit("js");
+  js.getSession().setMode("ace/mode/javascript")
+  js.setTheme("ace/theme/twilight")
+  js.setOptions(Option);
+  js.session.setUseWrapMode(true);
+  js.session.setTabSize(1);
+  js.session.getLength();
+  js.setBehavioursEnabled(true);
+  js.setShowPrintMargin(false);
+  
 }
-Css();
-function Javascript() {
-window.editorJs = ace.edit("js");
-editorJs.getSession().setMode("ace/mode/javascript");
-editorJs.setTheme("ace/theme/monokai");
-editorJs.setValue(`${c}`, 1);
-editorJs.setOptions({
-showLineNumbers: true,
-showGutter: true,
-vScrollBarAlwaysVisible: false,
-enableBasicAutocompletion: true,
-enableLiveAutocompletion: true,
-highlightActiveLine: false,
-    autoScrollEditorIntoView: true,
-    enableBasicAutocompletion: true,
-        enableSnippets: true,
-        enableLiveAutocompletion: true,
-    minLines: 10,
-   fontFamily : "Roboto Mono",
-    fontSize : "16px",
-    cursorStyle : "wide"
-});
-    editorJs.session.setUseWrapMode(true);
-editorJs.session.setTabSize(1);
-editorJs.setBehavioursEnabled(true);
-editorJs.setShowPrintMargin(false);
-}
-Javascript();
+UpdateEditor();
 
-document.getElementById("result").addEventListener("click", function () {
-if(editorHtml.getValue() == "" && editorCss.getValue() == "" && editorJs.getValue() == "") {
-Prompt.style.left = "2%";
+function toggleData(i) {
+  for(let p = 0; p < btns.length; p++) {
+    btns[p].classList.remove("active");
+    editors[p].classList.remove("active");
+  }
+  btns[i].classList.add("active");
+  editors[i].classList.add("active")
+  fileName.innerHTML = btns[i].childNodes[1].innerHTML;
 }
-let iframe = document.getElementById("iframe");
-iframe.srcdoc = `${editorHtml.getValue()}<style>${editorCss.getValue()}</style> <script src="//cdn.jsdelivr.net/npm/eruda"></script><script>eruda.init({ default : {displaySize: 100, theme : "Material Darker"}});</script><script>${editorJs.getValue()}</script>`;
-SessionsKey();
+btns.forEach(function(e, i) {
+  e.addEventListener("click", function() {
+  toggleData(i);
+  });
+})
+
+let bool = true;
+function showOutputByIframe() {
+  if(bool) {
+    main.style.transform = "translateX(-100%)";
+    iframe.srcdoc = `${html.getValue()}<style>${css.getValue()}</style><script>${js.getValue()}</script>`;
+    bool = false;
+    let txt = html.getValue().match(/\<title\>.*?\<\/title\>/g);
+    if(txt === null || txt === undefined) title.innerHTML = `Project Title`;
+    else {
+    let replace = txt[0].replace(/(<(.*?)>)/g, ``);
+    title.innerHTML = replace;
+    }
+  } else {
+    main.style.transform = `translateX(0%)`;
+    iframe.srcdoc = ``;
+    bool = true;
+  }
+}
+
+function updateValue() {
+  html.setValue(localStorage.html);
+  css.setValue(localStorage.css);
+  js.setValue(localStorage.js);
+  html.blur();
+}
+window.onload = function() {
+  updateValue();
+}
+function updateDataValue() {
+  localStorage.html = html.getValue();
+  localStorage.css = css.getValue();
+  localStorage.js = js.getValue();
+}
+
+toggle.forEach(function(e, i) {
+e.addEventListener("click", function() {
+  showOutputByIframe();
+})
 });
-function ForPcOn(){
-if(window.innerWidth >= 900){
-let iframe = document.getElementById("iframe");
-iframe.srcdoc = editorHtml.getValue()+"<style>"+editorCss.getValue()+"</style>"+"<script>"+editorJs.getValue()+"</script>";
-timer = 100;
-}else {
-return;
-}
-}
-ForPcOn();
-//prmpt
-var Prompt = document.querySelector(".prompt");
-var tmp = `<!doctype html>\n <html>\n \ <head>\n \ <title>This is the axample</title>\n \ <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n \ <meta http-equiv='X-UA-Compatible' content='IE=Edge'>\n \</head>\n \<body>\n \ \ <h1>This is heading</h1>\n \ \ <p>This is a paragraph</p>\n \</body>\n </html>\n <!--[This is a example of our editor]-->`, tmp_2 = `* \{\n font-size: 18px;\n \}`, tmp_3 = `document.write(Date())`;
-function Changrt(txtN) {
-if(txtN == "ok") {
-if(editorHtml.getValue() == "" && editorCss.getValue() == "" && editorJs.getValue() == "") {
 
-editorHtml.setValue(`${tmp}`, 1);
-Prompt.style.left = `${"-"+100+100}%`;
-
-editorCss.setValue(`${tmp_2}`, 1);
-
-editorJs.setValue(`${tmp_3}`, 1);
-Prompt.style.left = `${"-"+100+100}%`;
-}
-} else {
-Prompt.style.left = `${"-"+100+100}%`;
-}
-SessionsKey();
-}
-Changrt('ok');
+editors.forEach(function(e, i) {
+  e.addEventListener("keyup", function() {
+    updateDataValue();
+  });
+})
