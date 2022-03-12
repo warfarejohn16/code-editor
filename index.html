@@ -1,48 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-				<title>Code Editor v1.0.0</title>
-				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-				<link rel="stylesheet" href="index.css"/>
-</head>
-<body>
-<div class="fluid-container">
-<div class="cd">
+<html>
 
-<header>
-			<button class="btn active" onclick="clickTrigger(0)">Html</button>
-			<button class="btn" onclick="clickTrigger(1)">Css</button>
-			<button class="btn result" onclick="clickTrigger(2)">Js</button>
-			<button id="result">Result</button>
-		</header>
-			<div class="code-container">
-				<section id="html" contenteditable onkeyup="SessionsKey();ForPcOn();" onclick="editorHtml.focus()">
-				</section>
-				<section id="css" contenteditable onkeyup="SessionsKey();ForPcOn();" onclick="editorCss.focus()">
-				</section>
-				<section id="js" contenteditable onkeyup="SessionsKey();ForPcOn();" onclick="editorJs.focus()">
-				</section>
-			</div>
-</div>
-		<div class="frame-container">
-			<iframe id="iframe" type="module"></iframe>
-		</div>
-		</div>
-<div class="prompt">
-<div class="leftedTxt">
-<h2>The Compiler is <span id="null">null</span></h2>
-<p>do you want to fill it out?</p>
-</div>
-<div class="accepted">
-<button onclick="Changrt('ok')">Ok.</button>
-</div>
-<button onclick="Changrt('noThnks')">×</button>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
-	
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Code Editor 1.7.9</title>
+  <link rel="stylesheet" href="index.css"/>
+</head>
+
+<body>
+<main>
+ <div class="code-container">
+   <div class="code-section">
+    <div class="navbar">
+     <div class="play-section">
+      <h2 id="file-name">index.html</h2>
+      <button class="toggle-slide"><i class="fas fa-play"></i></button>
+     </div>
+     <div class="toggle-editor">
+       <button class="btn active btnHTML"><i class="fa-brands fa-html5"></i><span>index.html</span></button>
+       <button class="btn btnCSS"><i class="fa-brands fa-css3-alt"></i><span>style.css</span></button>
+       <button class="btn btnJS"><i class="fa-brands fa-js-square"></i><span>background.js</span></button>
+     </div>
+    </div>
+   <div class="editor-container">
+    <div id="html" class="editor active"></div>
+    <div id="css" class="editor"></div>
+    <div id="js" class="editor"></div>
+  </div>
+   </div>
+   <div class="output-console">
+     <div class="title-exit">
+       <button class="exit toggle-slide"><i class="fas fa-times"></i></button>
+       <h2 id="project-title">Project Title</h2>
+     </div>
+     <iframe id="output"></iframe>
+   </div>
+ </div>
+</main>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/ace.js"></script>
 	<script src="https://ace.c9.io/build/src-noconflict/ace.js"></script>
     <script src="https://ace.c9.io/build/src-noconflict/ext-language_tools.js"></script>
-	<script src="index.js" defer></script>
+  <script src="index.js" defer></script>
 </body>
+
 </html>
