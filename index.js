@@ -1,3 +1,4 @@
+
 let Option = {
     showLineNumbers: true,
     showGutter: true,
@@ -5,34 +6,27 @@ let Option = {
     enableBasicAutocompletion: false,
     enableLiveAutocompletion: false,
     highlightActiveLine: true,
+    highlightGutterLine : false,
     autoScrollEditorIntoView: true,
     enableBasicAutocompletion: true,
     enableSnippets: true,
     enableLiveAutocompletion: true,
     minLines: 10,
     fontFamily: "Roboto Mono",
-    fontSize: "18px",
-    cursorStyle: "wide"
+    fontSize : "16px",
+    cursorStyle: "wide",
+    showInvisibles : false,
+    tooltipFollowsMouse : false,
+    selectionStyle : "text",
+    fadeFoldWidgets : true,
+    theme : "ace/theme/cobalt"
 }
-let main = document.querySelector(".code-container");
-let container = document.querySelector(".editor-container");
 let editors = document.querySelectorAll("div.editor");
-let btns = document.querySelectorAll(".btn");
-let nav = document.querySelector(".navbar");
-let fileName = document.querySelector("#file-name");
-let titleExit = document.querySelector(".title-exit");
 let iframe = document.querySelector("#output")
-let toggle = document.querySelectorAll(".toggle-slide");
-let title = document.querySelector("#project-title");
-let height = parseInt(getComputedStyle(nav, null).getPropertyValue("height"));
-let height_2 = parseInt(getComputedStyle(titleExit, null).getPropertyValue("height"));
-let run = document.querySelector("#run");
-container.style.height = `calc(100% - ${height}px)`;
-iframe.style.height = `calc(100% - ${height}px)`;
 function UpdateEditor() {
   window.html = ace.edit("html");
   html.getSession().setMode("ace/mode/html")
-  html.setTheme("ace/theme/twilight")
+  //html.setTheme("ace/theme/twilight")
   html.setOptions(Option);
   html.session.setUseWrapMode(true);
   html.session.setTabSize(1);
@@ -42,7 +36,7 @@ function UpdateEditor() {
   //css
   window.css = ace.edit("css");
   css.getSession().setMode("ace/mode/css")
-  css.setTheme("ace/theme/twilight")
+  //css.setTheme("ace/theme/twilight")
   css.setOptions(Option);
   css.session.setUseWrapMode(true);
   css.session.setTabSize(1);
@@ -52,31 +46,17 @@ function UpdateEditor() {
   //javascript
   window.js = ace.edit("js");
   js.getSession().setMode("ace/mode/javascript")
-  js.setTheme("ace/theme/twilight")
+  //js.setTheme("ace/theme/twilight")
   js.setOptions(Option);
   js.session.setUseWrapMode(true);
   js.session.setTabSize(1);
   js.session.getLength();
   js.setBehavioursEnabled(true);
   js.setShowPrintMargin(false);
-  
+  updateValue();
 }
-UpdateEditor();
 
-function toggleData(i) {
-  for(let p = 0; p < btns.length; p++) {
-    btns[p].classList.remove("active");
-    editors[p].classList.remove("active");
-  }
-  btns[i].classList.add("active");
-  editors[i].classList.add("active")
-  fileName.innerHTML = btns[i].childNodes[1].innerHTML;
-}
-btns.forEach(function(e, i) {
-  e.addEventListener("click", function() {
-  toggleData(i);
-  });
-})
+
 
 let bool = true;
 function showOutputByIframe() {
@@ -101,25 +81,12 @@ function updateValue() {
   html.setValue(localStorage.html);
   css.setValue(localStorage.css);
   js.setValue(localStorage.js);
-  html.blur();
-}
-window.onload = function() {
-  updateValue();
+  html.clearSelection();
+  css.clearSelection();
+  js.clearSelection();
 }
 function updateDataValue() {
   localStorage.html = html.getValue();
   localStorage.css = css.getValue();
   localStorage.js = js.getValue();
 }
-
-toggle.forEach(function(e, i) {
-e.addEventListener("click", function() {
-  showOutputByIframe();
-})
-});
-
-editors.forEach(function(e, i) {
-  e.addEventListener("keyup", function() {
-    updateDataValue();
-  });
-})
