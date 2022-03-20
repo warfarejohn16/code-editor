@@ -4,14 +4,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Code Editor 1.7.9</title>
+  <title>Code Editor</title>
   <link rel="stylesheet" href="index.css"/>
+  <link rel="stylesheet" href="custom.css"/>
 </head>
 
 <body>
 <main>
  <div class="code-container">
+    <nav>
+    <button class="toggleEditor edit-code"><i class="fa fa-gear"></i></button>
+    <button class="toggleEditor settings active"><i class="fa fa-code"></i></button>
+   </nav>
    <div class="code-section">
+     <div class="settings-list toggle-div">
+       <div class="header">
+         <h1>Settings</h1>
+         <p>Creator : <i>PineAppleCoder Beginner!</i></p>
+     </div>
+     <div class="mn-contents">
+       <section class="data">
+           <p>font-size</p>
+           <div class="font-size dropdown drop-option">
+             <h4>16px</h4>
+             <div class="data-dropdown-option">
+               <ul class="list-size"></ul>
+             </div>
+           </div>
+       </section>
+       <section class="data">
+         <p>font-family</p>
+         <div class="font-family dropdown drop-option">
+             <h4>Roboto Mono</h4>
+             <div class="data-dropdown-option">
+               <ul class="list-fonts"></ul>
+             </div>
+           </div>
+       </section>
+       <section class="data">
+         <p>font-weight</p>
+         <div class="font-weight dropdown drop-option">
+           <h4>Normal</h4>
+           <div class="data-dropdown-option">
+               <ul class="list-font-weight"></ul>
+             </div>
+         </div>
+       </section>
+       <section class="data">
+         <p>line-height</p>
+         <div class="font-size dropdown drop-option">
+           <h4>1.4</h4>
+           <div class="data-dropdown-option">
+             <ul class="list-line-height"></ul>
+           </div>
+         </div>
+       </section>
+       <section class="data">
+         <p>theme</p>
+         <div class="font-size dropdown drop-option">
+           <h4>Cobalt</h4>
+           <div class="data-dropdown-option">
+             <ul class="list-themes"></ul>
+           </div>
+         </div>
+       </section>
+       <section class="data">
+        <p>show snippet</p>
+         <button class="toggle-btn dropdown">true</button>
+       </section>
+     </div>
+     </div>
+    <div class="code-editor toggle-div">
     <div class="navbar">
      <div class="play-section">
       <h2 id="file-name">index.html</h2>
@@ -22,11 +85,19 @@
        <button class="btn btnCSS"><i class="fa-brands fa-css3-alt"></i><span>style.css</span></button>
        <button class="btn btnJS"><i class="fa-brands fa-js-square"></i><span>background.js</span></button>
      </div>
+     <div class="loading"></div>
     </div>
    <div class="editor-container">
-    <div id="html" class="editor active"></div>
-    <div id="css" class="editor"></div>
-    <div id="js" class="editor"></div>
+    <div id="html" class="editor active">
+      code is initializing...
+    </div>
+    <div id="css" class="editor">
+      code is initializing...
+    </div>
+    <div id="js" class="editor">
+      code is initializing...
+    </div>
+  </div>
   </div>
    </div>
    <div class="output-console">
@@ -42,6 +113,7 @@
 	<script src="https://ace.c9.io/build/src-noconflict/ace.js"></script>
     <script src="https://ace.c9.io/build/src-noconflict/ext-language_tools.js"></script>
   <script src="index.js" defer></script>
+  <script src="interactive.js" defer></script>
 </body>
 
 </html>
