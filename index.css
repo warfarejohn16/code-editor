@@ -1,7 +1,9 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css);
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Source+Code+Pro:wght@300&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Source+Code+Pro:wght@300&family=Poppins&family=Syne+Mono&family=JetBrains+Mono&display=swap');
 :root {
   --opacity : 0.2;
+  --setting : #222930;
+  --headersStyle : #303A43;
 }
 * {
   margin: 0;
@@ -17,23 +19,48 @@ main {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  display: flex;
 }
 .code-container {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: grid;
-  grid-template-columns: 100% 100%;
+  grid-template-columns: 55px calc(100% - 55px) 100%;
   grid-template-rows: 100%;
   transform: translateX(0%);
   transition: transform 0.6s;
+  background:  #222930;
+}
+.code-container nav {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(255,255,255, var(--opacity));
+  overflow: auto;
+  position: relative;
+  z-index: 100;
+  box-shadow: 2px 0px 3px rgba(35,50,56,.34);
+}
+.code-container nav button {
+  padding: 5px 4px;
+  min-height: 70px;
+  margin-top: 10px;
+  font-size: 1.6rem;
+  border: none;
+  background: transparent;
+  color: white;
+}
+.code-container nav .active {
+  background: rgba(255,255,255,.23);
 }
 .code-container .code-section {
-  background: #222930;
+  background: transparent;
+  position: relative;
 }
 .navbar {
   width: 100%;
   height: auto;
-  background: #303A43;
+  background: var(--headersStyle);
+  position: relative;
 }
 .code-section .navbar .play-section {
   display: flex;
@@ -55,12 +82,16 @@ main {
   border: none;
   font-size: 1.3rem;
 }
-
-.code-section .navbar .toggle-editor {
+.code-editor {
+  width: 100%;
+  height: 100%;
+}
+.code-section .code-editor .navbar .toggle-editor {
   border-bottom: 1px solid rgba(255,255,255,var(--opacity));
   display: flex;
+  position: relative;
 }
-.code-section .navbar .toggle-editor button {
+.code-section .code-editor .navbar .toggle-editor button.btn {
   width: auto;
   margin: 0px;
   padding: 5px 15px;
@@ -68,49 +99,71 @@ main {
   border-right: 1px solid rgba(255,255,255,var(--opacity));
   background: transparent;
   color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.code-section .navbar .toggle-editor button i {
+.code-section .code-editor .navbar .toggle-editor button.btn i {
   font-size: 1.3rem;
   display: inline-block;
   padding: 6px;
   margin-top: 5px;
   vertical-align: sub;
 }
-.code-section .navbar .toggle-editor button.btnHTML i {
+.code-section .code-editor .navbar .toggle-editor button.btnHTML i {
   color: tomato;
 }
-.code-section .navbar .toggle-editor button.btnCSS i {
+.code-section .code-editor .navbar .toggle-editor button.btnCSS i {
   color: royalblue;
 }
-.code-section .navbar .toggle-editor button.btnJS i {
-  color: orange;
+.code-section .code-editor .navbar .toggle-editor button.btnJS i {
+  color: yellow;
 }
-.code-section .navbar .toggle-editor button.active {
+.code-section .code-editor .navbar .toggle-editor button.active {
   background: rgb(38,50,56);
 }
-.code-section .editor-container {
+.code-section .code-editor .editor-container {
   overflow: auto;
   width: 100%;
-  padding: 5px;
+  padding: 2px;
 }
-.code-section .editor-container .editor {
+.code-section .code-editor .editor-container .editor {
   width: 100%;
   height: 100%;
   min-height: 18px;
   display: none;
   background: rgba(0,0,0,.15);
-  line-height: 1.4;
-  padding: 5px;
+  line-height: 1.5;
+  padding: 10px;
   background: transparent;
+  font-family: "Poppins";
+  color: white;
+  font-weight: 400 !important;
 }
-.code-section .editor-container .editor > * {
+.code-section .code-editor .editor-container .editor > .ace_gutter {
   background: transparent !important;
   color: white !important;
+  border-right: 1px solid rgba(255,255,255, var(--opacity));
 }
-.code-section .editor-container .ace_layer { 
+.code-section .code-editor .editor-container .editor .ace_mobile-menu {
+  background: red !important;
+  outline: 2px solid orange;
+  display: none;
+}
+.ace_cursor {
+  border-left: 2.1px solid goldenrod !important;
+}
+.ace_gutter .ace_gutter-cell {
+  padding-left: 16px !important;
+  padding-right: 12px !important;
+}
+.ace_indent-guide {
+  background: transparent !important;
+}
+.code-section .code-editor .editor-container .ace_layer { 
   background: transparent;
 }
-.code-section .editor.active {
+.code-section .code-editor .editor.active {
   display: block;
 }
 
@@ -119,6 +172,8 @@ main {
 .code-container .output-console {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .output-console .title-exit {
@@ -126,7 +181,7 @@ main {
   height: auto;
   display: flex;
   align-items: stretch;
-  background: rgba(0,0,0,.85);
+  background: var(--headersStyle);
   color: white;
 }
 
@@ -140,9 +195,130 @@ main {
   font-size: 1.5rem;
   border: none;
   background: transparent;
-  color: seagreen;
+  color: springgreen;
 }
 .output-console #output {
   width: 100%;
+  height: 100%;
   border: none;
+}
+
+.navbar .loading {
+  position: absolute;
+  height: 2px;
+  width: 1%;
+  bottom: 0px;
+  background: dodgerblue;
+  box-shadow: 2px 0px -5px lightsteelblue;
+}
+
+
+.code-container .code-section .settings-list {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: var(--setting);
+}
+.settings-list .header {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--headersStyle);
+  border-bottom: 1px solid rgba(255,255,255, var(--opacity));
+}
+.settings-list .header h1, .settings-list .header p {
+  width: 100%;
+  color: white;
+  padding: 5px 10px;
+}
+.settings-list .header p {
+  font-family: 'Poppins', sans-serif;
+}
+.settings-list .header h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 300;
+}
+.settings-list .mn-contents {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.mn-contents section {
+  width: 95%;
+  border: 1px solid rgba(255,255,255,var(--opacity));
+  background: rgba(255,255,255,.06);
+  border-radius: 3px;
+  margin: 7px 0px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  position: relative;
+}
+.mn-contents .data p {
+  padding: 10px;
+  font-family: "Syne Mono", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+}
+.mn-contents .data .dropdown {
+ margin: 5px;
+  width: 120px;
+  height: auto;
+  border: 1px solid rgba(255,255,255, var(--opacity));
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dropdown .data-dropdown-option {
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  width: calc(100% + 2px);
+  height: auto;
+  max-height: 200px;
+  overflow: auto;
+  background: #304657;
+  border: 1px solid rgba(255,255,255,var(--opacity));
+  border-radius: 0px 0px 3px 3px;
+  font-size: inherit !important;
+  display: none;
+}
+.dropdown .data-dropdown-option.active {
+  display: block;
+}
+.dropdown .data-dropdown-option ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  font-size: inherit;
+}
+.dropdown .data-dropdown-option ul li {
+  width: 100%;
+  padding: 5px;
+  font-family: "Syne Mono";
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgba(255,255,255,var(--opacity));
+}
+.mn-contents .data button.dropdown {
+  padding: 5px;
+  font-size: 1.1rem;
+  background: transparent;
+  color: white;
+  font-family: "Source Code Pro", sans-serif;
+  font-weight: 500;
+}
+.data .dropdown h4 {
+  width: 100%;
+  padding: 5px;
+  font-family: "Source Code Pro";
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
