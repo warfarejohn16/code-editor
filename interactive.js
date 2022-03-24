@@ -15,16 +15,20 @@ let listfont = document.querySelector(".list-fonts");
 let listtheme = document.querySelector(".list-themes")
 let listWeightFont = document.querySelector(".list-font-weight")
 let listLineHeight = document.querySelector(".list-line-height")
+let listCursorStyle = document.querySelector(".list-caret-color")
+let listCursorSize = document.querySelector(".list-caret-size");
 let dropdown = document.querySelectorAll(".drop-option");
 let data_dropdown = document.querySelectorAll(".data-dropdown-option");
-let toggle_snippet = document.querySelector(".toggle-btn")
+let toggle_snippet = document.querySelector(".toggle-btn");
+let toggle_wrap = document.querySelector(".wrap-mode");
 let titlex = document.querySelectorAll(".dropdown h4")
 let height = parseInt(getComputedStyle(nav, null).getPropertyValue("height"));
 let height_2 = parseInt(getComputedStyle(titleExit, null).getPropertyValue("height"));
 let run = document.querySelector("#run");
+let cursorWidth = "2px";
+let cursorColor = "goldenrod";
 container.style.height = `calc(100% - ${height}px)`;
 //iframe.style.height = `calc(100% - ${height}px)`;
-
 let count = 1;
 let timer = setInterval(function() {
   count++;
@@ -80,13 +84,16 @@ toggleEditor.forEach(function(e, i) {
   })
 })
 function changeStyle(type, index) {
+ let cursor = document.querySelectorAll(".ace_cursor")
  let fontSize = document.querySelectorAll(".size-count");
  let fonts = document.querySelectorAll(".font-families")
  let weight_fonts = document.querySelectorAll(".font-weight")
  let themes_sec = document.querySelectorAll(".theme");
  let line_heights = document.querySelectorAll(".line-height");
+ let cursorz = document.querySelectorAll(".color-cursor");
+ let cursorSz = document.querySelectorAll(".width-cursor")
  let src = "ace/theme/";
- let arr = ["fontsize", "fonts", "line-height", "font-weight", "theme"];
+ let arr = ["fontsize", "fonts", "line-height", "font-weight", "theme", "cursor-color", "cursor-width"];
  if(type === arr[0]) {
    titlex[0].innerText = fontSize[index].innerText;
    html.setOption("fontSize", fontSize[index].innerText)
@@ -117,12 +124,27 @@ if(type === arr[3]) {
   css.setOption("theme", src+themes_sec[index].innerText)
   js.setOption("theme", src+themes_sec[index].innerText)
  }
+ if(type === arr[5]) {
+   titlex[5].innerText = cursorz[index].innerText;
+   for(let i = 0; i < cursor.length; i++) {
+   cursor[i].style.borderLeft = `${cursorWidth} solid ${cursorz[index].innerText}`;
+   }
+   cursorColor = cursorz[index].innerText;
+ }
+ if(type === arr[6]) {
+   titlex[6].innerText = cursorSz[index].innerText;
+   for(let j = 0; j < cursor.length; j++) {
+   cursor[j].style.borderLeft = `${cursorSz[index].innerText} solid ${cursorColor}`;
+   }
+   cursorWidth = cursorSz[index].innerText;
+ }
 }
-let fontsize = 33;
+let fontsize = 33, curWidth = 5;
 let fonts = ["Roboto Mono", "Syne Mono", "Source Code Pro", "monospace", "JetBrains Mono"];
 let weightfonts = ["normal", "bold", "300", "200", "100", "400", "500", "600", "700", "800", "900", "1000"];
 let lineHeights = ["normal", 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2];
 let themes = ["cobalt", "twilight"];
+let cursor_style = ["goldenrod", "yellow", "tomato", "green", "lime", "limegreen", "purple", "red", "gold", "orange", "darkgreen", "lightgreen", "black", "white", "pink", "violet"];
 function loadFontSize() {
   for(let i = 0; i < fontsize; i++) {
     let li = document.createElement("li");
@@ -168,7 +190,27 @@ function loadFontSize() {
     listtheme.appendChild(li);
    }
  }
- loadThemes();
+ function loadCursorColor() {
+   for(let a = 0; a < cursor_style.length; a++) {
+     let li = document.createElement("li");
+     li.setAttribute("class", "color-cursor");
+     li.setAttribute("onclick", `changeStyle("cursor-color", ${a})`)
+     li.innerText = cursor_style[a];
+     listCursorStyle.appendChild(li);
+   }
+ }
+ function loadCursorWidth() {
+   for(let v = 0; v < curWidth; v++) {
+     let li = document.createElement("li");
+     li.setAttribute("class", "width-cursor");
+     li.setAttribute("onclick", `changeStyle("cursor-width", ${v})`)
+     li.innerText = `${v+1}px`;
+     listCursorSize.appendChild(li)
+   }
+ }
+ loadCursorWidth();
+ loadCursorColor();
+ loadThemes(); 
  loadLineHeight();
  loadFontSize();
  loadFontFamily();
@@ -192,6 +234,7 @@ function loadFontSize() {
 });
 
 let bool$ = true;
+let bool$1 = true;
 function toggleSnippet() {
   if(bool$) {
     bool$ = false;
@@ -214,7 +257,24 @@ function toggleSnippet() {
   }
   toggle_snippet.innerText = bool$;
 }
+function toggleWrapping() {
+  if(bool$1) {
+    bool$1 = false;
+    html.setOption("wrap", bool$1)
+    css.setOption("wrap", bool$1)
+    js.setOption("wrap", bool$1)
+  } else {
+    bool$1 = true;
+    html.setOption("wrap", bool$1)
+    css.setOption("wrap", bool$1)
+    js.setOption("wrap", bool$1)
+  }
+  toggle_wrap.innerText = bool$1;
+}
 
 toggle_snippet.addEventListener("click", function() {
   toggleSnippet();
+})
+toggle_wrap.addEventListener("click", function() {
+  toggleWrapping();
 })
