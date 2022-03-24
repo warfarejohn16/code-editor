@@ -220,6 +220,7 @@ main {
   width: 100%;
   height: 100%;
   background: var(--setting);
+  overflow: auto;
 }
 .settings-list .header {
   width: 100%;
