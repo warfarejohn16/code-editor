@@ -152,8 +152,8 @@ main {
   display: none;
 }
 .ace_cursor {
-  border-left: 2.1px solid goldenrod !important;
-}
+  border-left: 2.1px solid goldenrod;
+ }
 .ace_gutter .ace_gutter-cell {
   padding-left: 16px !important;
   padding-right: 12px !important;
