@@ -51,6 +51,11 @@ function UpdateEditor() {
   js.session.getLength();
   js.setBehavioursEnabled(true);
   js.setShowPrintMargin(false);
+  if(html.getValue() === null || html.getValue() === undefined || html.getValue() === "") {
+  localStorage.html = "";
+  localStorage.css = "";
+  localStorage.js = "";
+  }
   updateValue();
 }
 
