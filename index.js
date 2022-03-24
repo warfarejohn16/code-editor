@@ -19,7 +19,8 @@ let Option = {
     tooltipFollowsMouse : false,
     selectionStyle : "text",
     fadeFoldWidgets : true,
-    theme : "ace/theme/cobalt"
+    theme : "ace/theme/cobalt",
+    wrap : true,
 }
 let editors = document.querySelectorAll("div.editor");
 let iframe = document.querySelector("#output")
@@ -28,7 +29,6 @@ function UpdateEditor() {
   html.getSession().setMode("ace/mode/html")
   //html.setTheme("ace/theme/twilight")
   html.setOptions(Option);
-  html.session.setUseWrapMode(true);
   html.session.setTabSize(1);
   html.session.getLength();
   html.setBehavioursEnabled(true);
@@ -38,7 +38,6 @@ function UpdateEditor() {
   css.getSession().setMode("ace/mode/css")
   //css.setTheme("ace/theme/twilight")
   css.setOptions(Option);
-  css.session.setUseWrapMode(true);
   css.session.setTabSize(1);
   css.session.getLength();
   css.setBehavioursEnabled(true);
@@ -48,7 +47,6 @@ function UpdateEditor() {
   js.getSession().setMode("ace/mode/javascript")
   //js.setTheme("ace/theme/twilight")
   js.setOptions(Option);
-  js.session.setUseWrapMode(true);
   js.session.setTabSize(1);
   js.session.getLength();
   js.setBehavioursEnabled(true);
