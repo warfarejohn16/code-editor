@@ -64,8 +64,11 @@ function UpdateEditor() {
 let bool = true;
 function showOutputByIframe() {
   if(bool) {
+   let val = html.getValue();
+   if(val.search(/<\/body>/)) val = val.replace(/<\/body>/g, `<script>${js.getValue()}</script></body>`);
+   if(val.search(/<\/head>/)) val = val.replace(/<\/head>/g, `<style>${css.getValue()}</style></head>`);
     main.style.transform = "translateX(-100%)";
-    iframe.srcdoc = `${html.getValue()}<style>${css.getValue()}</style><script>${js.getValue()}</script>`;
+    iframe.srcdoc = `${val}`;
     bool = false;
     let txt = html.getValue().match(/\<title\>.*?\<\/title\>/g);
     if(txt === null || txt === undefined) title.innerHTML = `Project Title`;
