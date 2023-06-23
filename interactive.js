@@ -25,7 +25,7 @@ let titlex = document.querySelectorAll(".dropdown h4")
 let height = parseInt(getComputedStyle(nav, null).getPropertyValue("height"));
 let height_2 = parseInt(getComputedStyle(titleExit, null).getPropertyValue("height"));
 let run = document.querySelector("#run");
-let setting;
+let setting = [];
 let cursorWidth = "2px";
 let cursorColor = "goldenrod";
 container.style.height = `calc(100% - ${height}px)`;
