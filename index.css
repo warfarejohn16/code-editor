@@ -136,7 +136,6 @@ main {
   line-height: 1.5;
   padding: 10px;
   font-family: "Poppins";
-  color: white;
   font-weight: 400 !important;
 }
 .code-section .code-editor .editor-container .editor .ace_mobile-menu {
