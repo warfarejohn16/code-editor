@@ -29,7 +29,7 @@ let cursorWidth = "2px";
 let cursorColor = "goldenrod";
 container.style.height = `calc(100% - ${height}px)`;
 //iframe.style.height = `calc(100% - ${height}px)`;
-let count = 1;
+let count = 1, delay = 1000;
 let timer = setInterval(function() {
   count++;
   if(count >= 100) {
@@ -63,7 +63,11 @@ e.addEventListener("click", function() {
 
 editors.forEach(function(e, i) {
   e.addEventListener("keyup", function() {
-    updateDataValue();
+    let i;
+    clearTimeout(i)
+    i = setTimeout(function() {
+      updateDataValue()
+    }, delay);
   });
 })
 
