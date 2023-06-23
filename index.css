@@ -155,9 +155,6 @@ main {
 .ace_indent-guide {
   background: transparent !important;
 }
-.code-section .code-editor .editor-container .ace_layer { 
-  background: transparent;
-}
 .code-section .code-editor .editor.active {
   display: block;
 }
