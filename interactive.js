@@ -143,18 +143,14 @@ if(type === arr[3]) {
    }
    cursorWidth = cursorSz[index].innerText;
  }
-  setting.push({type : type, index : index})
   setting.forEach(function(span, i) {
     if(span.type === type && span.index === index) {
-      setting.pop();
-      span = {
-        type : type,
-        index : index
-      }
+      setting.splice(i, 1);
     }
   })
-  let json = JSON.stringify(setting);
-  localStorage.setItem("eachValue", json);
+  setting.push({type : type, index : index})
+
+  localStorage.setItem("eachValue", JSON.stringify(setting));
 }
 let fontsize = 33, curWidth = 5;
 let fonts = ["Roboto Mono", "Syne Mono", "Source Code Pro", "monospace", "JetBrains Mono"];
@@ -165,9 +161,8 @@ let cursor_style = ["goldenrod", "yellow", "tomato", "green", "lime", "limegreen
 
 function loadPreviousInteraction() {
   if(!localStorage.getItem("eachValue")) return;
-  let getItem = localStorage.getItem("eachValue");
-  let unzip = JSON.parse(getItem);
-  unzip.forEach(function(span, i) {
+  let opt = JSON.parse(localStorage.getItem("eachValue"));
+  opt.forEach(function(span, i) {
     changeStyle(span.type, span.index);
   })
 }
