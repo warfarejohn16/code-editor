@@ -144,7 +144,7 @@ if(type === arr[3]) {
    cursorWidth = cursorSz[index].innerText;
  }
   setting.forEach(function(span, i) {
-    if(span.type === type && span.index === index) {
+    if(span.type === type) {
       setting.splice(i, 1);
     }
   })
