@@ -25,6 +25,7 @@ let titlex = document.querySelectorAll(".dropdown h4")
 let height = parseInt(getComputedStyle(nav, null).getPropertyValue("height"));
 let height_2 = parseInt(getComputedStyle(titleExit, null).getPropertyValue("height"));
 let run = document.querySelector("#run");
+let setting;
 let cursorWidth = "2px";
 let cursorColor = "goldenrod";
 container.style.height = `calc(100% - ${height}px)`;
@@ -142,6 +143,18 @@ if(type === arr[3]) {
    }
    cursorWidth = cursorSz[index].innerText;
  }
+  setting.push({type : type, index : index})
+  setting.forEach(function(span, i) {
+    if(span.type === type && span.index === index) {
+      setting.pop();
+      span = {
+        type : type,
+        index : index
+      }
+    }
+  })
+  let json = JSON.stringify(setting);
+  localStorage.setItem("eachValue", json);
 }
 let fontsize = 33, curWidth = 5;
 let fonts = ["Roboto Mono", "Syne Mono", "Source Code Pro", "monospace", "JetBrains Mono"];
@@ -149,6 +162,16 @@ let weightfonts = ["normal", "bold", "300", "200", "100", "400", "500", "600", "
 let lineHeights = ["normal", 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2];
 let themes = ["cobalt", "twilight", "ambiance", "chrome", "cloud9_day", "cloud9_night", "cloud9_night_low_color", "clouds", "clouds_midnight", "cobalt", "crimson-editor", "dawn", "dracula", "dreamwaver", "eclipse", "github", "github_dark", "gob", "gruvbox", "gruvbox_dark_hard", "gruvbox_light_hard"];
 let cursor_style = ["goldenrod", "yellow", "tomato", "green", "lime", "limegreen", "purple", "red", "gold", "orange", "darkgreen", "lightgreen", "black", "white", "pink", "violet"];
+
+function loadPreviousInteraction() {
+  if(!localStorage.getItem("eachValue")) return;
+  let getItem = localStorage.getItem("eachValue");
+  let unzip = JSON.parse(getItem);
+  unzip.forEach(function(span, i) {
+    changeStyle(span.type, span.index);
+  })
+}
+loadPreviousInteraction();
 function loadFontSize() {
   for(let i = 0; i < fontsize; i++) {
     let li = document.createElement("li");
