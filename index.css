@@ -136,15 +136,9 @@ main {
   background: rgba(0,0,0,.15);
   line-height: 1.5;
   padding: 10px;
-  background: transparent;
   font-family: "Poppins";
   color: white;
   font-weight: 400 !important;
-}
-.code-section .code-editor .editor-container .editor > .ace_gutter {
-  background: transparent !important;
-  color: white !important;
-  border-right: 1px solid rgba(255,255,255, var(--opacity));
 }
 .code-section .code-editor .editor-container .editor .ace_mobile-menu {
   background: red !important;
