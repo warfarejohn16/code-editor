@@ -166,7 +166,6 @@ function loadPreviousInteraction() {
     changeStyle(span.type, span.index);
   })
 }
-loadPreviousInteraction();
 function loadFontSize() {
   for(let i = 0; i < fontsize; i++) {
     let li = document.createElement("li");
@@ -237,6 +236,7 @@ function loadFontSize() {
  loadFontSize();
  loadFontFamily();
  loadFontWeight();
+loadPreviousInteraction();
  function openClose(index) {
    for(let x = 0; x < data_dropdown.length; x++) {
      data_dropdown[x].classList.remove("active");
