@@ -64,10 +64,10 @@ e.addEventListener("click", function() {
 editors.forEach(function(e, i) {
   e.addEventListener("keyup", function() {
     let i;
-    run.style.color = "red";
+    toggle[0].style.color = "red";
     clearTimeout(i)
     i = setTimeout(function() {
-      run.style.color = "";
+      toggle[0].style.color = "";
       updateDataValue();
     }, delay);
   });
