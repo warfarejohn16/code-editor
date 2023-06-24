@@ -159,7 +159,7 @@ let fontsize = 33, curWidth = 5;
 let fonts = ["Roboto Mono", "Syne Mono", "Source Code Pro", "monospace", "JetBrains Mono"];
 let weightfonts = ["normal", "bold", "300", "200", "100", "400", "500", "600", "700", "800", "900", "1000"];
 let lineHeights = ["normal", 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2];
-let themes = ["cobalt", "twilight", "ambiance", "chrome", "cloud9_day", "cloud9_night", "cloud9_night_low_color", "clouds", "clouds_midnight", "cobalt", "crimson-editor", "dawn", "dracula", "dreamwaver", "eclipse", "github", "github_dark", "gob", "gruvbox", "gruvbox_dark_hard", "gruvbox_light_hard"];
+let themes = ["cobalt", "twilight", "ambiance", "chrome", "cloud9_day", "cloud9_night", "cloud9_night_low_color", "clouds", "clouds_midnight", "cobalt", "crimson-editor", "dawn", "dracula", "dreamwaver", "eclipse", "github", "github_dark", "gob", "gruvbox", "gruvbox_dark_hard", "gruvbox_light_hard", "idle_fingers", "iplastic", "katzenmilch", "kr_theme", "kuroir", "merbivorce", "merbivorce_soft", "mono_industrial", "monokai", "nord_dark", "one_dark", "pastel_on_dark", "solarized_dark", "solarized_dark", "sqlserver", "terminal",  "textmate", "tomorrow", "tomorrow_night", "tomorrow_night_blue", "tomorrow_night_bright", "tomorrow_night_eighties", "vibrant_ink", "xcode"];
 let cursor_style = ["goldenrod", "yellow", "tomato", "green", "lime", "limegreen", "purple", "red", "gold", "orange", "darkgreen", "lightgreen", "black", "white", "pink", "violet"];
 
 function loadPreviousInteraction() {
