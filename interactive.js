@@ -29,7 +29,7 @@ let cursorWidth = "2px";
 let cursorColor = "goldenrod";
 container.style.height = `calc(100% - ${height}px)`;
 //iframe.style.height = `calc(100% - ${height}px)`;
-let count = 1, delay = 1000;
+let count = 1, delay = 2000;
 let timer = setInterval(function() {
   count++;
   if(count >= 100) {
