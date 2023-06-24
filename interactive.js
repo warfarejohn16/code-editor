@@ -44,6 +44,7 @@ let timer = setInterval(function() {
 function saveAnimation() {
   count++;
   if(count >= 100) {
+    count = 0;
      updateDataValue()
     clearInterval(saveAn)
   }
