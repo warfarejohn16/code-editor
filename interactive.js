@@ -148,7 +148,7 @@ if(type === arr[3]) {
 function saveChangesOpt(type, index) {
   setting$.forEach(function(span, i) {
     if(span.type === type) {
-      setting.splice(i, 1);
+      setting$.splice(i, 1);
     }
   })
   setting$.push({type : type, index : index})
