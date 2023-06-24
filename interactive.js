@@ -30,7 +30,7 @@ let cursorWidth = "2px";
 let cursorColor = "goldenrod";
 container.style.height = `calc(100% - ${height}px)`;
 //iframe.style.height = `calc(100% - ${height}px)`;
-let count = 1, delay = 1000;
+let count = 1, delay = 1000, saveAn;
 let timer = setInterval(function() {
   count++;
   if(count >= 100) {
@@ -41,7 +41,14 @@ let timer = setInterval(function() {
   }
   range.style.width = `${count}%`;
 }, 20);
-
+function saveAnimation() {
+  count++;
+  if(count >= 100) {
+     updateDataValue()
+    clearInterval(saveAn)
+  }
+  range.style.width = `${count}%`;
+}
 function toggleData(i) {
   for(let p = 0; p < btns.length; p++) {
     btns[p].classList.remove("active");
@@ -68,7 +75,7 @@ editors.forEach(function(e, i) {
     let i;
     clearTimeout(i)
     i = setTimeout(function() {
-      updateDataValue()
+      saveAn = setInterval(saveAnimation, 20);
     }, delay);
   });
 })
