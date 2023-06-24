@@ -143,6 +143,8 @@ if(type === arr[3]) {
    }
    cursorWidth = cursorSz[index].innerText;
  }
+}
+function saveChangesOpt(type, index) {
   setting$.forEach(function(span, i) {
     if(span.type === type) {
       setting.splice(i, 1);
@@ -170,7 +172,10 @@ function loadFontSize() {
   for(let i = 0; i < fontsize; i++) {
     let li = document.createElement("li");
     li.setAttribute("class", "size-count");
-    li.setAttribute("onclick", `changeStyle("fontsize", ${i})`)
+    li.addEventListener("click", function() {
+      changeStyle("fontsize", i)
+      saveChangesOpt("fontsize", i)
+    })
     li.innerText = `${i}px`;
     listSize.appendChild(li);
   }
@@ -179,7 +184,10 @@ function loadFontSize() {
    for(let i = 0; i < fonts.length; i++) {
     let li = document.createElement("li");
     li.setAttribute("class", "font-families");
-    li.setAttribute("onclick", `changeStyle("fonts", ${i})`)
+    li.addEventListener("click", function() {
+      changeStyle("fonts", i)
+      saveChangesOpt("fonts", i)
+    })
     li.innerText = `${fonts[i]}`;
     listfont.appendChild(li);
   }
@@ -188,7 +196,10 @@ function loadFontSize() {
    for(let x = 0; x < weightfonts.length; x++) {
     let li = document.createElement("li");
     li.setAttribute("class", "font-weight");
-    li.setAttribute("onclick", `changeStyle("font-weight", ${x+1})`)
+    li.addEventListener("click", function() {
+      changeStyle("font-weight", x+1)
+      saveChangesOpt("font-weight", x+1)
+    })
     li.innerText = `${weightfonts[x]}`;
     listWeightFont.appendChild(li);
   }
@@ -197,7 +208,10 @@ function loadFontSize() {
    for(let y = 0; y < lineHeights.length; y++) {
      let li = document.createElement("li");
     li.setAttribute("class", "line-height");
-    li.setAttribute("onclick", `changeStyle("line-height", ${y})`)
+    li.addEventListener("click", function() {
+      changeStyle("fontsize", y)
+      saveChangesOpt("fontsize", y)
+    })
     li.innerText = `${lineHeights[y]}`;
     listLineHeight.appendChild(li)
    }
@@ -206,7 +220,10 @@ function loadFontSize() {
    for(let c = 0; c < themes.length; c++) {
      let li = document.createElement("li");
     li.setAttribute("class", "theme");
-    li.setAttribute("onclick", `changeStyle("theme", ${c})`)
+    li.addEventListener("click", function() {
+      changeStyle("theme", c)
+      saveChangesOpt("theme", c)
+    })
     li.innerText = `${themes[c]}`;
     listtheme.appendChild(li);
    }
@@ -215,7 +232,10 @@ function loadFontSize() {
    for(let a = 0; a < cursor_style.length; a++) {
      let li = document.createElement("li");
      li.setAttribute("class", "color-cursor");
-     li.setAttribute("onclick", `changeStyle("cursor-color", ${a})`)
+     li.addEventListener("click", function() {
+      changeStyle("color-cursor", a)
+      saveChangesOpt("color-cursor", a)
+    })
      li.innerText = cursor_style[a];
      listCursorStyle.appendChild(li);
    }
@@ -224,7 +244,10 @@ function loadFontSize() {
    for(let v = 0; v < curWidth; v++) {
      let li = document.createElement("li");
      li.setAttribute("class", "width-cursor");
-     li.setAttribute("onclick", `changeStyle("cursor-width", ${v})`)
+     li.addEventListener("click", function() {
+      changeStyle("width-cursor", v)
+      saveChangesOpt("width-cursor", v)
+    })
      li.innerText = `${v+1}px`;
      listCursorSize.appendChild(li)
    }
