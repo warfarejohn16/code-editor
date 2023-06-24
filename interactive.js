@@ -252,6 +252,7 @@ function loadFontSize() {
      listCursorSize.appendChild(li)
    }
  }
+function loadFunctions() {
  loadCursorWidth();
  loadCursorColor();
  loadThemes(); 
@@ -259,7 +260,11 @@ function loadFontSize() {
  loadFontSize();
  loadFontFamily();
  loadFontWeight();
-loadPreviousInteraction();
+ loadPreviousInteraction();
+}
+window.onload = function() {
+  loadFunctions();
+}
  function openClose(index) {
    for(let x = 0; x < data_dropdown.length; x++) {
      data_dropdown[x].classList.remove("active");
