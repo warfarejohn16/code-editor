@@ -36,6 +36,7 @@ let timer = setInterval(function() {
   if(count >= 100) {
     count = 0;
     UpdateEditor();
+    loadPreviousInteraction();
     clearInterval(timer);
   }
   range.style.width = `${count}%`;
@@ -260,7 +261,6 @@ function loadFunctions() {
  loadFontSize();
  loadFontFamily();
  loadFontWeight();
- loadPreviousInteraction();
 }
 window.onload = function() {
   loadFunctions();
