@@ -167,6 +167,7 @@ function loadPreviousInteraction() {
   let opt = JSON.parse(localStorage.getItem("eachValue"));
   opt.forEach(function(span, i) {
     changeStyle(span.type, span.index);
+    setting$.push(span)
   })
 }
 function loadFontSize() {
@@ -210,8 +211,8 @@ function loadFontSize() {
      let li = document.createElement("li");
     li.setAttribute("class", "line-height");
     li.addEventListener("click", function() {
-      changeStyle("fontsize", y)
-      saveChangesOpt("fontsize", y)
+      changeStyle("line-height", y)
+      saveChangesOpt("line-height", y)
     })
     li.innerText = `${lineHeights[y]}`;
     listLineHeight.appendChild(li)
@@ -234,8 +235,8 @@ function loadFontSize() {
      let li = document.createElement("li");
      li.setAttribute("class", "color-cursor");
      li.addEventListener("click", function() {
-      changeStyle("color-cursor", a)
-      saveChangesOpt("color-cursor", a)
+      changeStyle("cursor-color", a)
+      saveChangesOpt("cursor-color", a)
     })
      li.innerText = cursor_style[a];
      listCursorStyle.appendChild(li);
@@ -246,8 +247,8 @@ function loadFontSize() {
      let li = document.createElement("li");
      li.setAttribute("class", "width-cursor");
      li.addEventListener("click", function() {
-      changeStyle("width-cursor", v)
-      saveChangesOpt("width-cursor", v)
+      changeStyle("cursor-width", v)
+      saveChangesOpt("cursor-width", v)
     })
      li.innerText = `${v+1}px`;
      listCursorSize.appendChild(li)
