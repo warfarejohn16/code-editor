@@ -25,7 +25,7 @@ let titlex = document.querySelectorAll(".dropdown h4")
 let height = parseInt(getComputedStyle(nav, null).getPropertyValue("height"));
 let height_2 = parseInt(getComputedStyle(titleExit, null).getPropertyValue("height"));
 let run = document.querySelector("#run");
-let setting = [];
+let setting$ = [];
 let cursorWidth = "2px";
 let cursorColor = "goldenrod";
 container.style.height = `calc(100% - ${height}px)`;
@@ -143,14 +143,14 @@ if(type === arr[3]) {
    }
    cursorWidth = cursorSz[index].innerText;
  }
-  setting.forEach(function(span, i) {
+  setting$.forEach(function(span, i) {
     if(span.type === type) {
       setting.splice(i, 1);
     }
   })
-  setting.push({type : type, index : index})
+  setting$.push({type : type, index : index})
 
-  localStorage.setItem("eachValue", JSON.stringify(setting));
+  localStorage.setItem("eachValue", JSON.stringify(setting$));
 }
 let fontsize = 33, curWidth = 5;
 let fonts = ["Roboto Mono", "Syne Mono", "Source Code Pro", "monospace", "JetBrains Mono"];
@@ -160,7 +160,7 @@ let themes = ["cobalt", "twilight", "ambiance", "chrome", "cloud9_day", "cloud9_
 let cursor_style = ["goldenrod", "yellow", "tomato", "green", "lime", "limegreen", "purple", "red", "gold", "orange", "darkgreen", "lightgreen", "black", "white", "pink", "violet"];
 
 function loadPreviousInteraction() {
-  if(!localStorage.getItem("eachValue")) return;
+  if(localStorage.getItem("eachValue") === null || localStorage.getItem("eachValue") === undefined ) return;
   let opt = JSON.parse(localStorage.getItem("eachValue"));
   opt.forEach(function(span, i) {
     changeStyle(span.type, span.index);
