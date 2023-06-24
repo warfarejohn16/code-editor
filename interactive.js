@@ -1,4 +1,3 @@
-
 let main = document.querySelector(".code-container");
 let container = document.querySelector(".editor-container");
 let btns = document.querySelectorAll(".btn");
