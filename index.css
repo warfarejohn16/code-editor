@@ -250,6 +250,7 @@ main {
   justify-content: space-between;
   font-size: 1.1rem;
   position: relative;
+  padding: 5px;
 }
 .mn-contents .data p {
   padding: 10px;
@@ -296,6 +297,9 @@ main {
   font-family: "Syne Mono";
   font-size: 1.2rem;
   border-bottom: 1px solid rgba(255,255,255,var(--opacity));
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .mn-contents .data button.dropdown {
   padding: 5px;
