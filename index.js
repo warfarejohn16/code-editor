@@ -65,8 +65,7 @@ let bool = true;
 function showOutputByIframe() {
   if(bool) {
    let val = html.getValue();
-   if(val.search(/<\/body>/)) val = val.replace(/<\/body>/g, `<script>${js.getValue()}</script></body>`);
-   if(val.search(/<\/head>/)) val = val.replace(/<\/head>/g, `<style>${css.getValue()}</style></head>`);
+    val += `<style>${css.getValue()}</style><script defer>${js.getValue()}</script>`
     main.style.transform = "translateX(-100%)";
     iframe.srcdoc = `${val}`;
     bool = false;
